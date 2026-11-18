@@ -1,65 +1,70 @@
 name: Bug Report
-description: Report something that does not work as expected
-labels: ["bug"]
+description: Laporkan bug atau perilaku tidak sesuai
+labels: ["bug", "triage"]
 body:
   - type: markdown
     attributes:
       value: |
-        Thanks for reporting a bug. Please fill in the details below.
-        Do not paste passwords, tokens, or patient data.
+        Untuk masalah **production** yang sedang berjalan, gunakan template **Production Incident**.
+        File dulu walau belum lengkap — perbarui lewat komentar.
+        **Jangan** tempel password, token, atau data pasien.
 
   - type: textarea
-    id: description
+    id: deskripsi
     attributes:
-      label: What happened?
-      description: A clear and short description of the problem.
+      label: Deskripsi
+      description: Apa yang salah? 1-2 kalimat.
     validations:
       required: true
 
   - type: textarea
-    id: steps
+    id: reproduksi
     attributes:
-      label: Steps to reproduce
+      label: Langkah reproduksi
       placeholder: |
-        1. Open ...
-        2. Click ...
-        3. See error
+        1. Buka ...
+        2. Klik ...
+        3. Lihat ...
     validations:
       required: true
 
   - type: textarea
     id: expected
     attributes:
-      label: Expected behavior
-      description: What should happen instead?
-    validations:
-      required: true
-
-  - type: dropdown
-    id: severity
-    attributes:
-      label: Severity
-      options:
-        - Low - cosmetic issue
-        - Medium - feature broken, workaround exists
-        - High - main feature broken, no workaround
-        - Critical - production down or data at risk
-    validations:
-      required: true
-
-  - type: dropdown
-    id: environment
-    attributes:
-      label: Environment
-      options:
-        - Production
-        - Staging
-        - Development
+      label: Perilaku yang diharapkan
     validations:
       required: true
 
   - type: textarea
-    id: evidence
+    id: actual
     attributes:
-      label: Logs or screenshots
-      description: Error messages, log excerpts, or screenshots. Optional.
+      label: Perilaku aktual
+      description: Sertakan error message, log, atau screenshot. Sensor token & data pribadi.
+    validations:
+      required: true
+
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      description: Browser/OS/versi aplikasi; commit atau host jika tahu.
+      placeholder: "Chrome 130 / Windows 11 / commit abc123"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: frekuensi
+    attributes:
+      label: Frekuensi
+      options:
+        - Selalu
+        - Kadang-kadang
+        - Sekali saja
+    validations:
+      required: true
+
+  - type: textarea
+    id: konteks
+    attributes:
+      label: Konteks tambahan
+      description: Workaround, kapan mulai terjadi, dll. Opsional.
