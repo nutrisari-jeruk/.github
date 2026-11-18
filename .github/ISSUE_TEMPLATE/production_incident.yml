@@ -5,15 +5,26 @@ body:
   - type: markdown
     attributes:
       value: |
-        Use this form for production problems only.
-        For urgent outages, also contact the IT team directly after filing.
-        Do not paste passwords, tokens, or patient data.
+        **Use this form for production problems only.** For dev/staging issues, use Bug Report.
+        If the service is fully down, contact the IT on-call **first**, then file this issue.
+        File even if incomplete — update in comments as things change.
+        Do **not** paste passwords, tokens, patient data, or log dumps containing personal data.
 
   - type: textarea
     id: summary
     attributes:
       label: Summary
-      description: What is broken and since when?
+      description: One or two lines — what is broken, and since when?
+      placeholder: e.g. "Helpdesk API returns 502 for all requests since ~09:40"
+    validations:
+      required: true
+
+  - type: input
+    id: started
+    attributes:
+      label: Started at (approx. OK)
+      description: When did the problem begin? Use WIB.
+      placeholder: "2026-11-18 09:40 WIB"
     validations:
       required: true
 
@@ -22,6 +33,20 @@ body:
     attributes:
       label: Affected service
       description: Application or system name, e.g. simmas, helpdesk-it, satusehat.
+      placeholder: helpdesk-it
+    validations:
+      required: true
+
+  - type: dropdown
+    id: detected
+    attributes:
+      label: How was it detected?
+      options:
+        - Monitoring alert
+        - Staff report
+        - Patient / public report
+        - Post-deploy verification
+        - Other (describe in Summary)
     validations:
       required: true
 
@@ -29,7 +54,8 @@ body:
     id: impact
     attributes:
       label: Impact
-      description: Who is affected and how? Include staff/patient impact and data risk if any.
+      description: Who is affected and how? Which units/rooms, roughly how many people, what can they not do?
+      placeholder: e.g. "All technicians cannot open the task list; ~20 users; registration desk unaffected"
     validations:
       required: true
 
@@ -45,14 +71,42 @@ body:
     validations:
       required: true
 
+  - type: dropdown
+    id: data_risk
+    attributes:
+      label: Data at risk?
+      description: Any chance of data loss, corruption, or exposure (including patient data)?
+      options:
+        - "No"
+        - Possibly - described in Impact
+        - "Yes - described in Impact"
+    validations:
+      required: true
+
+  - type: input
+    id: deployment
+    attributes:
+      label: Deployment / version affected
+      description: Release tag, commit, or host if known. Optional.
+      placeholder: e.g. v1.4.2, commit abc1234, staging host
   - type: textarea
     id: mitigation
     attributes:
       label: Mitigation so far
-      description: Steps already taken (restart, rollback, failover). Leave empty if none.
+      description: Steps already taken (restart, rollback, failover) and their effect. Leave empty if none.
 
   - type: textarea
     id: evidence
     attributes:
       label: Evidence
-      description: Error messages, log excerpts, screenshots. Optional.
+      description: |
+        Error messages, log excerpts with timestamps, correlation/request IDs, screenshots.
+        Redact tokens and all personal data before pasting.
+        Optional at filing time — add as a comment if not available yet.
+
+  - type: input
+    id: related
+    attributes:
+      label: Related tickets or issues
+      description: TIK notes, other issues, or alert IDs. Optional.
+      placeholder: e.g. TIK-20261118, #152
