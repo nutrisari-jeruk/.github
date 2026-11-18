@@ -1,39 +1,39 @@
 name: Feature Request
-description: Usulkan fitur atau peningkatan
+description: Suggest a feature or an improvement
 labels: ["enhancement", "triage"]
 body:
   - type: markdown
     attributes:
       value: |
-        Jelaskan **masalahnya** dulu, baru solusinya.
-        **Jangan** tempel password, token, atau data pasien.
+        Describe the **problem** first, then the solution.
+        Do **not** paste passwords, tokens, or patient data.
 
   - type: textarea
-    id: masalah
+    id: problem
     attributes:
-      label: Masalah
-      description: Kebutuhan/masalah user apa yang diselesaikan? Siapa yang terdampak?
+      label: Problem
+      description: What user need or problem does this solve? Who is affected?
     validations:
       required: true
 
   - type: textarea
-    id: solusi
+    id: solution
     attributes:
-      label: Usulan solusi
+      label: Proposed solution
     validations:
       required: true
 
   - type: textarea
-    id: alternatif
+    id: alternatives
     attributes:
-      label: Alternatif yang dipertimbangkan
-      description: Solusi lain yang dipertimbangkan, atau alasan tidak perlu. Opsional.
+      label: Alternatives considered
+      description: Other approaches considered, or why no change is needed. Optional.
 
   - type: textarea
     id: acceptance
     attributes:
       label: Acceptance criteria
-      description: Kondisi terukur dan bisa diuji.
+      description: Measurable, testable conditions.
       placeholder: |
         - [ ] ...
         - [ ] ...
@@ -41,17 +41,17 @@ body:
       required: true
 
   - type: dropdown
-    id: prioritas
+    id: priority
     attributes:
-      label: Prioritas yang diusulkan
-      description: Saran pelapor saja — diputuskan saat triage.
+      label: Suggested priority
+      description: Reporter's suggestion only — decided at triage.
       options:
-        - Rendah
-        - Sedang
-        - Tinggi
+        - Low
+        - Medium
+        - High
 
   - type: input
     id: affected
     attributes:
-      label: Aplikasi atau layanan terdampak
-      description: Jika tahu, mis. simmas, helpdesk-it, satusehat. Opsional.
+      label: Affected app or service
+      description: If known, e.g. simmas, helpdesk-it, satusehat. Optional.
