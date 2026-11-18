@@ -1,0 +1,58 @@
+name: Production Incident
+description: Production outage, degradation, or data problem that needs attention
+labels: ["bug", "incident"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form for production problems only.
+        For urgent outages, also contact the IT team directly after filing.
+        Do not paste passwords, tokens, or patient data.
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: What is broken and since when?
+    validations:
+      required: true
+
+  - type: input
+    id: service
+    attributes:
+      label: Affected service
+      description: Application or system name, e.g. simmas, helpdesk-it, satusehat.
+    validations:
+      required: true
+
+  - type: textarea
+    id: impact
+    attributes:
+      label: Impact
+      description: Who is affected and how? Include staff/patient impact and data risk if any.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: urgency
+    attributes:
+      label: Urgency
+      options:
+        - Critical - service down, staff cannot work
+        - High - main feature broken, partial workaround
+        - Medium - degraded performance or minor feature down
+        - Low - cosmetic or no current impact
+    validations:
+      required: true
+
+  - type: textarea
+    id: mitigation
+    attributes:
+      label: Mitigation so far
+      description: Steps already taken (restart, rollback, failover). Leave empty if none.
+
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence
+      description: Error messages, log excerpts, screenshots. Optional.
