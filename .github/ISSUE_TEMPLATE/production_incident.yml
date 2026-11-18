@@ -1,6 +1,6 @@
 name: Production Incident
 description: Production outage, degradation, or data problem that needs attention
-labels: ["bug", "incident"]
+labels: ["bug"]
 body:
   - type: markdown
     attributes:
