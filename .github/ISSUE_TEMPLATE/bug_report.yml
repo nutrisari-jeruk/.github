@@ -1,45 +1,45 @@
 name: Bug Report
-description: Laporkan bug atau perilaku tidak sesuai
+description: Report a bug or unexpected behavior
 labels: ["bug", "triage"]
 body:
   - type: markdown
     attributes:
       value: |
-        Untuk masalah **production** yang sedang berjalan, gunakan template **Production Incident**.
-        File dulu walau belum lengkap — perbarui lewat komentar.
-        **Jangan** tempel password, token, atau data pasien.
+        For a **live production** problem, use the **Production Incident** template instead.
+        File even if incomplete — update via comments.
+        Do **not** paste passwords, tokens, or patient data.
 
   - type: textarea
-    id: deskripsi
+    id: description
     attributes:
-      label: Deskripsi
-      description: Apa yang salah? 1-2 kalimat.
+      label: What happened?
+      description: What is broken? 1-2 sentences.
     validations:
       required: true
 
   - type: textarea
-    id: reproduksi
+    id: steps
     attributes:
-      label: Langkah reproduksi
+      label: Steps to reproduce
       placeholder: |
-        1. Buka ...
-        2. Klik ...
-        3. Lihat ...
+        1. Open ...
+        2. Click ...
+        3. See ...
     validations:
       required: true
 
   - type: textarea
     id: expected
     attributes:
-      label: Perilaku yang diharapkan
+      label: Expected behavior
     validations:
       required: true
 
   - type: textarea
     id: actual
     attributes:
-      label: Perilaku aktual
-      description: Sertakan error message, log, atau screenshot. Sensor token & data pribadi.
+      label: Actual behavior
+      description: Include the error message, logs, or a screenshot. Redact tokens & personal data.
     validations:
       required: true
 
@@ -47,24 +47,24 @@ body:
     id: environment
     attributes:
       label: Environment
-      description: Browser/OS/versi aplikasi; commit atau host jika tahu.
+      description: Browser/OS/app version; commit or host if known.
       placeholder: "Chrome 130 / Windows 11 / commit abc123"
     validations:
       required: true
 
   - type: dropdown
-    id: frekuensi
+    id: frequency
     attributes:
-      label: Frekuensi
+      label: Frequency
       options:
-        - Selalu
-        - Kadang-kadang
-        - Sekali saja
+        - Always
+        - Sometimes
+        - Once
     validations:
       required: true
 
   - type: textarea
-    id: konteks
+    id: context
     attributes:
-      label: Konteks tambahan
-      description: Workaround, kapan mulai terjadi, dll. Opsional.
+      label: Additional context
+      description: Workaround, when it started, etc. Optional.
