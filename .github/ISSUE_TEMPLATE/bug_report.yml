@@ -47,7 +47,7 @@ body:
     id: environment
     attributes:
       label: Environment
-      description: Browser/OS/app version; commit or host if known.
+      description: Browser/OS and app version you were using. For internal apps, also the host/URL or commit.
       placeholder: "Chrome 130 / Windows 11 / commit abc123"
     validations:
       required: true
@@ -68,3 +68,11 @@ body:
     attributes:
       label: Additional context
       description: Workaround, when it started, etc. Optional.
+
+  - type: checkboxes
+    id: data-safety
+    attributes:
+      label: Data safety
+      options:
+        - label: This report contains no passwords, tokens, keys, patient data, or other personal data.
+          required: true

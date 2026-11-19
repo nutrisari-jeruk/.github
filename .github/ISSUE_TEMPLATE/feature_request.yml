@@ -55,3 +55,11 @@ body:
     attributes:
       label: Affected app or service
       description: If known, e.g. simmas, helpdesk-it, satusehat. Optional.
+
+  - type: checkboxes
+    id: data-safety
+    attributes:
+      label: Data safety
+      options:
+        - label: This report contains no passwords, tokens, keys, patient data, or other personal data.
+          required: true

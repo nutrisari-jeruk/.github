@@ -1,6 +1,6 @@
 name: Production Incident
 description: Production outage, degradation, or data problem that needs attention
-labels: ["bug"]
+labels: ["bug", "triage"]
 body:
   - type: markdown
     attributes:
@@ -110,3 +110,11 @@ body:
       label: Related tickets or issues
       description: TIK notes, other issues, or alert IDs. Optional.
       placeholder: e.g. TIK-20261118, #152
+
+  - type: checkboxes
+    id: data-safety
+    attributes:
+      label: Data safety
+      options:
+        - label: This report contains no passwords, tokens, keys, patient data, or other personal data.
+          required: true
